@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+
+data/
+dataset/
+
+*.pth
+*.mp4
+*.jpg
+*.png
+
+temp*
