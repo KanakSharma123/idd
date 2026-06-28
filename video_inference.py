@@ -98,7 +98,7 @@ model.eval()
 
 
 video = extract_frames(
-    "data/videos/249_280.mp4"
+    "data/videos/012_026.mp4"
 )
 
 

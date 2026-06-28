@@ -115,6 +115,8 @@ def detect_video(video_path):
     faces = extract_faces(
         frames
     )
+    print("Inference faces range:")
+    print(faces.min(), faces.max())
 
 
     print(
@@ -145,7 +147,8 @@ def detect_video(video_path):
     # Prediction
 
     output = model(video)
-
+    print(output)
+    print(torch.softmax(output, dim=1))
 
 
     pred = output.argmax(
@@ -153,23 +156,20 @@ def detect_video(video_path):
     )
 
 
-    confidence = torch.softmax(
-        output,
-        dim=1
-    )[0][pred].item()*100
+    probs = torch.softmax(output, dim=1)[0]
+
+    print("Real probability:", probs[0].item()*100)
+    print("Fake probability:", probs[1].item()*100)
 
 
 
-    print(
-        "Prediction:",
-        pred.item()
-    )
-
+    print("Prediction class:", pred.item())
 
     print(
-        "Confidence:",
-        confidence
+        "Probabilities:",
+        torch.softmax(output, dim=1)
     )
+
 
 
 
@@ -347,5 +347,5 @@ def detect_video(video_path):
 
 
 detect_video(
-    "data/videos/249_280.mp4"
+    "data/videos/012_026.mp4"
 )

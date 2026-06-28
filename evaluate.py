@@ -111,6 +111,8 @@ with torch.no_grad():
 
 
 
+print("All Labels:", y_true)
+print("All Predictions:", y_pred)
 
 print(
 "Accuracy:",

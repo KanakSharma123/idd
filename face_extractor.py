@@ -56,15 +56,16 @@ def extract_faces(frames):
 
         face = mtcnn(img)
 
+    if face is None:
+
+        face = transform(img)
+
+    else:
+        # MTCNN gives [-1,1], convert to [0,1]
+        face = (face + 1) / 2
 
 
-        if face is None:
-
-            # fallback
-            face = transform(img)
-
-
-        faces.append(face)
+    faces.append(face)
 
 
 
