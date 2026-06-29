@@ -22,6 +22,7 @@ Deepfake detectors often achieve high accuracy but lack interpretability. This p
 # Architecture
 
 The complete pipeline:
+
 ![Architecture](images/1.png)
 ![Architecture](images/2.png)
 ![Architecture](images/3.png)
