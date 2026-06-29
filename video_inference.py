@@ -98,10 +98,8 @@ model.eval()
 
 
 video = extract_frames(
-    "data/videos/012_026.mp4"
+    "data/videos/029_048.mp4"
 )
-
-
 
 # add batch
 
@@ -110,17 +108,12 @@ video = video.unsqueeze(0)
 
 video = video.to(device)
 
-
-
 print(
     "Model input:",
     video.shape
 )
 
-
-
 output = model(video)
-
 
 
 prob = torch.softmax(

@@ -10,11 +10,7 @@ from face_extractor import extract_faces
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-
-
-# -------------------------
 # Load model
-# -------------------------
 
 model = DeepfakeDetector()
 
@@ -31,10 +27,7 @@ model.to(device)
 model.eval()
 
 
-
-# -------------------------
 # GradCAM storage
-# -------------------------
 
 activations = {}
 gradients = {}
@@ -53,9 +46,9 @@ def backward_hook(module, grad_in, grad_out):
 
 
 
-# -------------------------
+
 # Automatically find last Conv2d
-# -------------------------
+
 
 target_layer = None
 
@@ -88,10 +81,8 @@ target_layer.register_full_backward_hook(
 
 
 
-
-# -------------------------
 # Detect video
-# -------------------------
+
 
 def detect_video(video_path):
 
@@ -171,11 +162,8 @@ def detect_video(video_path):
     )
 
 
-
-
-    # -------------------------
     # Backward GradCAM
-    # -------------------------
+
 
 
     model.zero_grad()
@@ -205,10 +193,8 @@ def detect_video(video_path):
     )
 
 
-
-    # -------------------------
     # GradCAM
-    # -------------------------
+
 
 
     weights = grads.mean(
@@ -256,9 +242,8 @@ def detect_video(video_path):
 
 
 
-    # -------------------------
     # Heatmap
-    # -------------------------
+
 
 
     cam_frame = cam[
@@ -343,9 +328,6 @@ def detect_video(video_path):
     )
 
 
-
-
-
 detect_video(
-    "data/videos/012_026.mp4"
+    "data/videos/029_048.mp4"
 )
