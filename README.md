@@ -126,6 +126,7 @@ python video_inference.py
 
 Example output:
 
-Prediction: FAKE
+Real probability: 6.474932283163071
+Fake probability: 93.52507591247559
 
 Confidence: 96%
